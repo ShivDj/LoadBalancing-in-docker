@@ -5,6 +5,6 @@ files:
     destination: /home/ubuntu/new_chatapp
 hooks:
   ApplicationStart:
-    - location: scripts/start-server.sh
+    - location: script/start-server.sh
       timeout: 300
       runas: root
