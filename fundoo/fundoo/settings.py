@@ -105,7 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shiv',
         'USER': 'shiv',
-        'PASSWORD': 'anni@123',
+        'PASSWORD': 'shiv12345',
         'HOST': 'shiv.cyxq3nw89gci.ap-south-1.rds.amazonaws.com',
         'PORT': '3306',
     }
