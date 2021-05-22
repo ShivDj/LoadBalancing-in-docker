@@ -5,7 +5,7 @@ files:
     destination: /home/ubuntu/new_chatapp
 hooks:
   BeforeInstall:
-      - location: script/Before_install.sh
+      - location: script/Before_inst.sh
       timeout: 500
       runas: root
 ApplicationStart:
