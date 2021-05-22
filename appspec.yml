@@ -5,10 +5,9 @@ files:
     destination: /home/ubuntu/new_chatapp
 hooks:
   BeforeInstall:
-      timeout: 300
-  AfterInstall:
-      timeout: 300
-  ApplicationStart:
+      timeout: 500
+      runas: root
+ApplicationStart:
     - location: script/start-server.sh
-      timeout: 300
+      timeout: 800
       runas: root
