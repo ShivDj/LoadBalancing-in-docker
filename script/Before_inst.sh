@@ -1,4 +1,7 @@
 #!/bin/bash
+   sudo rm -rf /home/ubuntu/new_chatapp/.idea
+   sudo rm -rf /home/ubuntu/new_chatapp/.github
+
 if [ -d /home/ubuntu/new_chatapp/fundoo ]; then
    sudo rm -rf /home/ubuntu/new_chatapp/fundoo
 fi
