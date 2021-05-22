@@ -8,7 +8,7 @@ hooks:
     - location: script/Before_inst.sh
       timeout: 500
       runas: root
-ApplicationStart:
+  ApplicationStart:
     - location: script/start-server.sh
       timeout: 800
       runas: root
