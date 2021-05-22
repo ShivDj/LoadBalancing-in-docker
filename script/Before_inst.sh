@@ -1,1 +1,2 @@
-sudo systemctl stop chataap.service
+sudo systemctl stop chatapp.service
+
