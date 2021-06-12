@@ -7,22 +7,24 @@ pipeline {
                 git credentialsId: 'b9de33bf-5297-40bb-97ff-5a6a8b5a6f67', url: 'https://github.com/ShivDj/new_chatapp.git'
             }
         }
-        stage ("SonarQube Analysis") {
+        stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('chatapp-sonar')
-                    sh "/opt/sonarqube/bin"
-            }
-        }   
-
-        stage ("Quality gate") {
-            steps {
-                timeout(time: 3, unit: 'MINUTES') {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true  
+                withSonarQubeEnv('My SonarQube Server') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'Maven 3.5') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
                 }
-
             }
-        }  
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    waitForQualityGate abortPipeline: true
+                }
+            }
         }
         stage('Build') {
             steps {
