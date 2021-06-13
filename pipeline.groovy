@@ -29,7 +29,6 @@ pipeline {
         stage('Deploy') {
             steps {
                sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.1.10 "bash /home/ubuntu/new_chatapp/script/start-server.sh"'
-
             }
         }
     }   
