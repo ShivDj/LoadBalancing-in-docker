@@ -7,7 +7,25 @@ pipeline {
                 git credentialsId: 'b9de33bf-5297-40bb-97ff-5a6a8b5a6f67', url: 'https://github.com/ShivDj/new_chatapp.git'
             }
         }
-        
+        stage ("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('sonarqube'){
+                    sh "/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner"
+                
+                }   
+            }
+        }   
+
+        stage ("Quality gate") {
+            steps {
+                timeout(time: 3, unit: 'MINUTES') {
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true  
+                }
+
+            }
+        }  
+        }
         
         stage('Build') {
             steps {
