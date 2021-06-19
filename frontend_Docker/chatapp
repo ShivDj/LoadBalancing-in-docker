@@ -1,0 +1,12 @@
+server {
+  listen 80;
+  server_name _default;
+  location = /favicon.ico { access_log off; log_not_found off; }
+  location /static/ {
+      root /home/ubuntu/fundoo;
+  }
+  location / {
+      include proxy_params;
+      proxy_pass http://172.17.0.2:8000;
+  }
+}
