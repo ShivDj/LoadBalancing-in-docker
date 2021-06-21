@@ -154,3 +154,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # LOGIN_REDIRECT_URL = 'sign_in'
 # LOGOUT_REDIRECT_URL = 'logout'
 CSRF_COOKIE_SECURE = False
+
