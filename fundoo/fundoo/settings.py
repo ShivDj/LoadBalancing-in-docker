@@ -1,5 +1,5 @@
 import os
-#import pymysql
+import pymysql
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -100,15 +100,15 @@ CHANNEL_LAYERS = {
 
 
 # Database
-#pymysql.install_as_MySQLdb()
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shiv',
-        'USER': 'shiv',
-        'PASSWORD': 'shiv12345',
-        'HOST': 'shiv.cyxq3nw89gci.ap-south-1.rds.amazonaws.com',
+        'USER': 'root',
+        'PASSWORD': 'shiv123456',
+        'HOST': 'mysql_container',
         'PORT': '3306',
     }
 }
