@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mysql:
+    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_mysqlimage
+    container_name: mysql_container
+    volumes:
+    - mysqldata:/var/lib/mysql
+  backend:
+    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_backendimage
+    container_name: backendcontainer
+    links:
+    - mysql
+  frontend:
+    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_frontendimage
+    container_name: frontendcontainer
+    links:
+    - backend
+    ports:
+    - 80:80
+volumes:
+  mysqldata:
