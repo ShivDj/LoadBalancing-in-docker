@@ -22,7 +22,6 @@ hiredis==1.0.0
 hyperlink==18.0.0
 idna==2.8
 incremental==17.5.0
-jwt==0.5.4
 msgpack==0.5.2
 oauthlib==3.0.1
 plumber==1.5
