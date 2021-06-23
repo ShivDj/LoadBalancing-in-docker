@@ -106,8 +106,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shiv',
-        'USER': 'root',
-        'PASSWORD': 'shiv123456',
+        'USER': 'shiv',
+        'PASSWORD': 'shiv12345',
         'HOST': 'mysql_container',
         'PORT': '3306',
     }
