@@ -1,21 +1,28 @@
 version: '3'
 services:
   mysql:
-    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_mysqlimage
+    image: mysql_image
+    build: /home/ubuntu/Docker_Project/db_docker
     container_name: mysql_container
     volumes:
-    - mysqldata:/var/lib/mysql
+    - MysqlVolume:/var/lib/mysql
   backend:
-    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_backendimage
+    image: backend_image
+    build: /home/ubuntu/Docker_Project
     container_name: backendcontainer
     links:
     - mysql
+    volumes:
+    - /home/ubuntu/Docker_Project:/new_chatapp
+
   frontend:
-    image: 635725186920.dkr.ecr.ap-south-1.amazonaws.com/compose_frontendimage
+    image: frontend_image
+    build: /home/ubuntu/Docker_Project/frontend_Docker 
     container_name: frontendcontainer
     links:
     - backend
     ports:
     - 80:80
 volumes:
-  mysqldata:
+  MysqlVolume:
+
