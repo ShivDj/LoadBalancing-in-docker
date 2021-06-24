@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git repo Cloning') {
             steps {
-                git credentialsId: 'b9de33bf-5297-40bb-97ff-5a6a8b5a6f67', url: 'https://github.com/ShivDj/new_chatapp.git'
+                git credentialsId: 'b9de33bf-5297-40bb-97ff-5a6a8b5a6f67', url: 'https://github.com/ShivDj/Jenkins_DockerCompose_Project.git'
             }
         }
       
