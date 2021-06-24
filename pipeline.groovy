@@ -8,19 +8,18 @@ pipeline {
             }
         }
       
-        stage('Build') {
+       stage('Build') {
             steps {
-                
-               sh 'rsync -r -e "ssh -i /var/lib/jenkins/public_instance_key.pem" /var/lib/jenkins/workspace/chatapp ubuntu@10.0.1.10:/home/ubuntu/'
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.1.10 "bash /home/ubuntu/chatapp/script/Before_inst.sh"'
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.1.10 "bash /home/ubuntu/chatapp/script/move.sh"'               
-
+     
+               sh 'rsync -r -e "ssh -i /var/lib/jenkins/public_instance_key.pem" /var/lib/jenkins/workspace/Docker ubuntu@65.2.144.139:/home/ubuntu/'
+               
                }
         }
         
         stage('Deploy') {
             steps {
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.1.10 "bash /home/ubuntu/new_chatapp/script/start-server.sh"'
+               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@65.2.144.139 "bash /home/ubuntu/Docker/script/Before_inst.sh"'
+               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@65.2.144.139 "bash /home/ubuntu/Docker/script/move.sh"'               
             }
         }
     }   
