@@ -6,6 +6,7 @@
 
 #if [ -d /home/ubuntu/new_chatapp/fundoo ]; then
    sudo rm -rf /home/ubuntu/Docker_Project/fundoo
+   sudo rm -rf /home/ubuntu/Docker_Project/script
 #fi
 #if [ -f /home/ubuntu/new_chatapp/requirements.txt ]; then
 #    sudo rm -rf /home/ubuntu/new_chatapp/requirements.txt
