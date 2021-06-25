@@ -11,15 +11,15 @@ pipeline {
        stage('Build') {
             steps {
      
-               sh 'rsync -r -e "ssh -i /var/lib/jenkins/public_instance_key.pem" /var/lib/jenkins/workspace/Docker ubuntu@65.2.144.139:/home/ubuntu/'
+               sh 'rsync -r -e "ssh -i /var/lib/jenkins/public_instance_key.pem" /var/lib/jenkins/workspace/Docker ubuntu@10.0.0.45:/home/ubuntu/'
                
                }
         }
         
         stage('Deploy') {
             steps {
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@65.2.144.139 "bash /home/ubuntu/Docker/script/Before_inst.sh"'
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@65.2.144.139 "bash /home/ubuntu/Docker/script/move.sh"'               
+               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.0.45 "bash /home/ubuntu/Docker/script/Before_inst.sh"'
+               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@10.0.0.45 "bash /home/ubuntu/Docker/script/move.sh"'               
             }
         }
     }   
