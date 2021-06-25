@@ -12,8 +12,8 @@ services:
     container_name: backendcontainer
     links:
     - mysql
-    #volumes:
-    #- /home/ubuntu/Docker_Project:/new_chatapp
+    volumes:
+    - /home/ubuntu/Docker_Project:/new_chatapp
 
   frontend:
     image: frontend_image
