@@ -19,7 +19,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@13.234.59.27 "bash /home/ubuntu/Docker/script/start-server.sh"'              
+               sh 'ssh -i /var/lib/jenkins/public_instance_key.pem ubuntu@13.234.59.27 "bash /home/ubuntu/Docker_Project/script/start-server.sh"'              
             }
         }
     }   
