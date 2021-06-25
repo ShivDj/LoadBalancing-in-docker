@@ -10,6 +10,7 @@
   sudo rm -rf /home/ubuntu/Docker_Project/appspec.yml
   sudo rm -rf /home/ubuntu/Docker_Project/frontend_Docker
   sudo rm -rf /home/ubuntu/Docker_Project/db_docker
+  sudo rm -rf /home/ubuntu/Docker_Project/backend
 if [ -d /home/ubuntu/Docker_Project/fundoo ]; then
    sudo rm -rf /home/ubuntu/Docker_Project/fundoo
 fi
