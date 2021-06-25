@@ -12,4 +12,4 @@
   sudo mv /home/ubuntu/Docker/db_docker /home/ubuntu/Docker_Project
   sudo mv /home/ubuntu/Docker/backend /home/ubuntu/Docker_Project
   sudo mv /home/ubuntu/Docker/fundoo /home/ubuntu/Docker_Project
-  sudo mv /home/ubuntu/Docker//requirements.txt /home/ubuntu/Docker_Project
+  sudo mv /home/ubuntu/Docker/requirements.txt /home/ubuntu/Docker_Project
