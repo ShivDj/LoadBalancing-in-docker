@@ -1,4 +1,4 @@
-FROM basechatappimage
+FROM pythonbaseimage
 #WORKDIR /new_chatapp/
 #RUN pip3 install -r requirements.txt
 EXPOSE 8000
