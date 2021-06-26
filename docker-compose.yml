@@ -2,7 +2,7 @@ version: '3'
 services:
   mysql:
     image: mysql_image
-    build: /home/ubuntu/Docker_Project/db_docker
+    build: /home/ubuntu/LoadBalancing-in-docker/db_docker
     container_name: mysql_container
     environment:
     - MYSQL_DATABASE=shiv
@@ -13,16 +13,16 @@ services:
     - MysqlVolume:/var/lib/mysql
   backend:
     image: backend_image
-    build: /home/ubuntu/Docker_Project/backend
+    build: /home/ubuntu/LoadBalancing-in-docker/backend
     container_name: backendcontainer
     links:
     - mysql
     volumes:
-    - /home/ubuntu/Docker_Project:/new_chatapp
+    - /home/ubuntu/LoadBalancing-in-docker:/new_chatapp
 
   frontend:
     image: frontend_image
-    build: /home/ubuntu/Docker_Project/frontend_Docker 
+    build: /home/ubuntu/LoadBalancing-in-docker/frontend_Docker 
     container_name: frontendcontainer
     links:
     - backend
@@ -31,9 +31,15 @@ services:
     
   proxy:
     image: proxy_image
-    build: /home/ubuntu/Docker_Project/proxy
+    build: /home/ubuntu/LoadBalancing-in-docker/proxy
     container_name: proxy_container
     links:
+    - frontend
+    ports:
+    - 80:80
+volumes:
+  MysqlVolume:
+
     - frontendcontainer
     ports:
     - 80:80
