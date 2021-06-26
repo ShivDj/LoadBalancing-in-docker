@@ -4,6 +4,11 @@ services:
     image: mysql_image
     build: /home/ubuntu/Docker_Project/db_docker
     container_name: mysql_container
+    environment:
+    - MYSQL_DATABASE=shiv
+    - MYSQL_USER=shiv
+    - MYSQL_PASSWORD=shiv12345
+    - MYSQL_ROOT_PASSWORD=shiv123456
     volumes:
     - MysqlVolume:/var/lib/mysql
   backend:
@@ -22,7 +27,15 @@ services:
     links:
     - backend
     ports:
+    - 81:80
+    
+  proxy:
+    image: proxy_image
+    build: /home/ubuntu/Docker_Project/proxy
+    container_name: proxy_container
+    links:
+    - frontendcontainer
+    ports:
     - 80:80
 volumes:
   MysqlVolume:
-
